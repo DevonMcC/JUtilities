@@ -6,11 +6,8 @@ NB.* dsp: despace - remove duplicate, leading, trailing spaces.
 NB.* nameExists: for name y, 0: does not exist; 1: exists
 NB.* mergeByCol0: merge x into y, replacing y by x where 0{"1 matches.
 NB.* fappendDHM: basic file append used in debug logging.
-NB.* dsp: despace - remove duplicate, leading, trailing spaces.
 NB.* dir: Directory listing: override stdlib.
 NB.* dospathsep: sub DOS path separator.
-NB.* dsp: delete leading, trailing, redundant spaces.
-NB.* dsp: despace - remove duplicate, leading, trailing spaces.
 NB.* eqsgnptn: partition vec by 1st "="
 NB.* f2v: File to Vector: read file -> vector of lines.
 NB.* v2f: Vector to File: write vector of lines to file as lines.
@@ -48,8 +45,6 @@ NB. 1,234 123,457 12 111,222,330
 NB.* sepLF: boxed vec -> items separated by LFs.
 sepLF=: 13 : ';((": :: ])y),10{a.'
 fappendDHM=: 4 : '(,x) (#@[ [ 1!:3) :: _1: (([: < 8 u: >) ::]) y'
-NB.* dsp: despace - remove duplicate, leading, trailing spaces.
-dsp=: (] #~ [: (([: |. [: -. [: *./\ |.) *. [: -. ] *. 1 , }:) ' ' = ])^:(0 < [: # ,)
 
 NB.* nameExists: for name y, 0: does not exist; 1: exists
 nameExists=: 0:"_ <: [: 4!:0 <^:(L. = 0:)
