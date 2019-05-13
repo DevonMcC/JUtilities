@@ -1,6 +1,6 @@
 NB.* WS.ijs: (partially) emulate APL WS - save variables to
-NB. files.  Only works on base namespace and does not
-NB. handle scripts.  Last updated 20130802 14:22.
+NB. files.  Works for arbitrary namespaces but does not
+NB. handle scripts.  Last updated 20180513 19:27.
 
 NB.* DIRFL: Name of directory file which maps file and variable names.
 NB.* lookup: return varname given filename or vice versa.
