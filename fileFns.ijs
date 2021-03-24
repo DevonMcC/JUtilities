@@ -864,12 +864,12 @@ NB.   fromdir=. endSlash x [ todir=. endSlash y
    try. fromdir fcopy todir catch. sf=. 0 1 end.
    sf
 NB.EG NB. Copy dir from E: to Z:
-NB.EG 'CDZ' (] copyDir [,[:}.])&.> <'E:\amisc\pix\Sel\2006Q3\20060925'
-NB.EG 'CDZ' (] copyDir [,[:}.])&.> <'E:\amisc\pix\Photos\2006Q3\20060925'
+NB.EG 'CDZ' (] copyDir [,[:}.])&.> <'E:\amisc\pix\Sel\2006Q4\20061005-07'
+NB.EG 'CDZ' (] copyDir [,[:}.])&.> <'E:\amisc\pix\Photos\2006Q4\20061005-07'
 NB.EG 6!:2 '''EDZ'' (] copyDir [,[:}.])&.> <''C:\amisc\Jsys'''
-NB.EG 'CDZ' (] copyDir [,[:}.])&.> <'E:\amisc\pix\Photos\2020Q4\20201105'
-NB.EG 'CDZ' (] copyDir [,[:}.])&.> <'E:\amisc\pix\Sel\2020Q4\20201105'
-NB.EG 'CDZ' (] replaceDir [,[:}.])&.> <'E:\amisc\pix\Photos\2020Q4\20201105'
+NB.EG 'CDZ' (] copyDir [,[:}.])&.> <'E:\amisc\pix\Photos\2021Q1\20210229'
+NB.EG 'CDZ' (] copyDir [,[:}.])&.> <'E:\amisc\pix\Sel\2021Q1\20210229'
+NB.EG 'CDZ' (] replaceDir [,[:}.])&.> <'E:\amisc\pix\Photos\2021Q1\20210229'
 )
 
 delDir=: 3 : 0
@@ -930,7 +930,7 @@ dirSize=: 3 : 0
 NB.   y=. PATHSEP_j_ (],[#~[~:[:{:]) y
    dl=. dir y,'*'
    whd=. 'd' e. &> 4{"1 dl
-   szs=. +/(-.whd)#;2{"1 dl
+   szs=. +/(-.whd)#;2{"1 dl             NB. Total size of files at this level
    if. 1 e. whd do.                   NB. Sum everything below top-level dirs
        szs=. szs,1 dirSize&>(<y),&.>PATHSEP_j_,~&.>whd#0{"1 dl
    end.
