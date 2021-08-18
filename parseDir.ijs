@@ -17,6 +17,8 @@ USUVARS=: 'FLNMS';'FLDTS';'FLSZS';'FLPARENT';'DIRNMS';'DIRDEP'
 
 NB.* buildTimedDiskInfo: build files' info vecs in separate namespace for given disk.
 NB.* subdirSzs: show directory sizes for all sub-dirs at specified dir.
+NB.* successiveRplc: apply pairs of replacements }.y to >{.y .
+NB.* findSlash: find which slash is being used in boxed items.
 NB.* jpathsep: change backslashes to slashes in a path.
 NB.* dospathsep: change forward slashes to backslashes in a path.
 NB.* sizeDirs: Add up sizes of all files in directories and all sub-dirs.
@@ -43,9 +45,6 @@ NB.* setTargetDir: figure target directory based on machine on which we run.
 NB.* setGlobalParms: assign globals according to defaults or command-line overrides.
 NB.* NYto01: convert 'N' or 'Y' to 0 or 1, respectively.
 NB.* runFromSavedVars: Run backup assuming dir&file vars already saved.
-NB.* subdirSzs: show directory sizes for all sub-dirs at specified dir.
-NB.* successiveRplc: apply pairs of replacements }.y to >{.y .
-NB.* findSlash: find which slash is being used in boxed items.
 NB.* sizeDirs: Add up sizes of all files in directories and all sub-dirs; x is sort column.
 NB.* sumSizesSubdirs: sum file sizes in named dir and all sub-dirs.
 NB.* accumSubdirs: accumulate dir indexes for dir named and all sub-dirs.
@@ -104,33 +103,6 @@ fappendDHM=: 4 : '(,x) (#@[ [ 1!:3) :: _1: (([: < 8 u: >) ::]) y'     NB. this.
 PATHSEP_j_=: '/'
 jpathsep=: '/'&(('\' I.@:= ])})
 dospathsep=: '\'&(('/' I.@:= ])})
-NB.* subdirSzs: show directory sizes for all sub-dirs at specified dir.
-NB.* jpathsep: change backslashes to slashes in a path.
-NB.* dospathsep: change forward slashes to backslashes in a path.
-NB.* sizeDirs: Add up sizes of all files in directories and all sub-dirs.
-NB.* sumSizesSubdirs: sum file sizes in named dir and all sub-dirs.
-NB.* accumSubdirs: accumulate dir indexes for dir named and all sub-dirs.
-NB.* crDirLog: create directory log file in \amisc\OfldInfo for drive spec'd.
-NB.* nameSpan: given 2 names like pfxYYYYMMDD, combine->pfxYYYYMMD1-D2.
-NB.* consolidateBkpsTowardPast: copy all contents of successive dirs into earliest starting with oldest->consolidated backups with newest version overwriting older ones.
-NB.* buildBatFl: build .BAT file to create target dirs and copy files to them.
-NB.* indicateSubdirs: from boolean selecting DIRNMS, indicate all subdirs.
-NB.* rmEndSep: remove terminal path separator from string.
-NB.* excludeFiles: exclude designated files from list to back up.
-NB.* dix2FullPath: dir index -> indexes for full path
-NB.* getDirFlInfo: get info on dirs and files starting at node specified.
-NB.* cvtDt2Num: convert Y M D h m s date to single num: YYYYMMDD.day fraction.
-NB.* initFlsDir: parse memory-mapped file of directory listing->file, dir info.
-NB.* getInfo: get directory into into file, memory-map and parse it.
-NB.* process1Subdir: parse single subdir entry->files, parent dirs as globals.
-NB.* extract1SubdirList: get first full sub-directory listing out of many.
-NB.* addPath: put new parent/child index in tree from text of "dir/subdirs..."
-NB.* Tst0addPath_tests_: test adding path to index vec tree from text.
-NB.* mcopyto: text of DOS .BAT file to do multiple copies.
-NB.* setTargetDir: figure target directory based on machine on which we run.
-NB.* setGlobalParms: assign globals according to defaults or command-line overrides.
-NB.* NYto01: convert 'N' or 'Y' to 0 or 1, respectively.
-NB.* runFromSavedVars: Run backup assuming dir&file vars already saved.
 
 NB.* subdirSzs: show directory sizes for all sub-dirs at specified dir.
 subdirSzs=: 3 : 0
