@@ -1,4 +1,5 @@
-NB.* LRAltWords.ijs: find words type by alternating left and right hands.
+NB.* LRAltWords.ijs: find words typed by alternating left and right hands; use this
+NB. list to help generate easily-typeable, long passwords.
 
 egLRAlt_usage_=: 0 : 0
    load '~Code/LRAltWords.ijs'
